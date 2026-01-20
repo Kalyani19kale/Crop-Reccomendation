@@ -28,6 +28,6 @@ rain= st.number_input("rainfall")
 if st.button(" Predict crop"):
     input_data = [[N,P,K,temp,hum,ph,rain]]
 
-    prediction = model.predict(input_scaled)
+    prediction = model.predict(input_data)
 
     st.success(f" Recommended Crop: **{prediction[0]}**")
