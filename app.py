@@ -11,7 +11,7 @@ import pickle
 
 # Model loaded 
 model = pickle.load(open("model.pkl", "rb"))
-scaler = pickle.load(open("scaler.pkl", "rb"))
+scalar = pickle.load(open("scalar.pkl", "rb"))
 le = pickle.load(open("label.pkl", "rb"))
 
 st.set_page_config(page_title="Crop Recommendation", layout="centered")
@@ -31,7 +31,7 @@ rain= st.number_input("rainfall")
 
 if st.button(" Predict crop"):
     input_data = [[N,P,K,temp,hum,ph,rain]]
-    input_scaled = scaler.transform(input_data)
+    input_scaled = scalar.transform(input_data)
     prediction = model.predict(input_scaled)
     crop = le.inverse_transform(prediction)
 
